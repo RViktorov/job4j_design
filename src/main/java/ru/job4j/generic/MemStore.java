@@ -8,16 +8,14 @@ public class MemStore<T extends Base> implements Store<T> {
 
     @Override
     public void add(T model) {
-        if (!storage.containsKey(model.getId())) {
-            storage.put(model.getId(), model);
-        }
+        storage.putIfAbsent(model.getId(), model);
     }
 
     @Override
     public boolean replace(String id, T model) {
         boolean result = false;
         if (storage.containsKey(id)) {
-            storage.put(id, model);
+            storage.replace(id, model);
             result = true;
         }
         return result;
@@ -30,13 +28,6 @@ public class MemStore<T extends Base> implements Store<T> {
 
     @Override
     public T findById(String id) {
-        T result = null;
-        for (String data : storage.keySet()) {
-            if (data.equals(id)) {
-                result = storage.get(data);
-                break;
-            }
-        }
-        return result;
+        return storage.get(id);
     }
 }
