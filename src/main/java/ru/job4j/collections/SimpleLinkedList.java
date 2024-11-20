@@ -50,9 +50,6 @@ public class SimpleLinkedList<E> implements SimpleLinked<E> {
 
             @Override
             public E next() {
-                if (expectedModCount != modCount) {
-                    throw new ConcurrentModificationException();
-                }
                 if (!hasNext()) {
                     throw new NoSuchElementException();
                 }
