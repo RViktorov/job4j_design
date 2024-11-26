@@ -38,5 +38,4 @@ class SimpleStackTest {
         assertThatThrownBy(stack::pop)
                 .isInstanceOf(NoSuchElementException.class);
     }
-
 }
