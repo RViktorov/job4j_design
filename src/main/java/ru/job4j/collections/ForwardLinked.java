@@ -1,5 +1,6 @@
 package ru.job4j.collections;
 
+import javax.sound.midi.Soundbank;
 import java.util.*;
 
 public class ForwardLinked<T> implements Iterable<T> {
@@ -44,6 +45,15 @@ public class ForwardLinked<T> implements Iterable<T> {
         return firstValue;
     }
 
+    public void addFirst(T value) {
+        if (head == null) {
+            head = new Node<>(value, null);
+        } else {
+            Node<T> nextValue = head;
+            head = new Node<>(value, nextValue);
+        }
+    }
+
     @Override
     public Iterator<T> iterator() {
         return new Iterator<T>() {
@@ -81,5 +91,16 @@ public class ForwardLinked<T> implements Iterable<T> {
             this.item = element;
             this.next = next;
         }
+    }
+
+    public static void main(String[] args) {
+        ForwardLinked<Integer> arr = new ForwardLinked<>();
+        arr.addFirst(1);
+        arr.addFirst(22);
+
+        System.out.println(arr.deleteFirst());
+        System.out.println(arr.deleteFirst());
+        System.out.println(arr.deleteFirst());
+
     }
 }
