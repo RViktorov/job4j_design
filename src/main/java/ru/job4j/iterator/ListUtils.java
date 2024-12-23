@@ -14,6 +14,7 @@ public class ListUtils {
     public static <T> void addAfter(List<T> list, int index, T value) {
         Objects.checkIndex(index, list.size());
         ListIterator<T> iterator = list.listIterator(index);
+        iterator.next();
         iterator.add(value);
     }
 
@@ -22,7 +23,6 @@ public class ListUtils {
         while (iterator.hasNext()) {
             if (filter.test(iterator.next())) {
                 iterator.remove();
-
             }
         }
     }
@@ -37,8 +37,7 @@ public class ListUtils {
     }
 
     public static <T> void removeAll(List<T> list, List<T> elements) {
-        ListIterator<T> iterator = list.listIterator();
         removeIf(list, i -> elements.contains(i));
-
     }
+
 }

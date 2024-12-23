@@ -34,7 +34,7 @@ class ListUtilsTest {
     @Test
     void whenAddAfter() {
         ListUtils.addAfter(input, 0, 2);
-        assertThat(input).hasSize(3).containsSequence(2, 1, 3);
+        assertThat(input).hasSize(3).containsSequence(1, 2, 3);
     }
 
     @Test
