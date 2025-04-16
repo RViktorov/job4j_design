@@ -13,7 +13,7 @@ import java.util.Map;
 
 public class DuplicatesVisitor extends SimpleFileVisitor<Path> {
 
-    private Map<FileProperty, ArrayList<Path>> table = new HashMap<>();
+    private Map<FileProperty, List<Path>> table = new HashMap<>();
 
     @Override
     public FileVisitResult visitFile(Path file, BasicFileAttributes attributes) throws IOException {
@@ -21,7 +21,7 @@ public class DuplicatesVisitor extends SimpleFileVisitor<Path> {
         String fileName = file.getFileName().toString();
         FileProperty fileProperty = new FileProperty(size, fileName);
         if (table.containsKey((fileProperty))) {
-            ArrayList<Path> temp = table.get(fileProperty);
+            List<Path> temp = table.get(fileProperty);
             temp.add(file);
             table.put(fileProperty, temp);
         } else {
@@ -32,8 +32,8 @@ public class DuplicatesVisitor extends SimpleFileVisitor<Path> {
     }
 
     public void filePrint() {
-        for (Map.Entry<FileProperty, ArrayList<Path>> entry : table.entrySet()) {
-            ArrayList<Path> paths = entry.getValue();
+        for (Map.Entry<FileProperty, List<Path>> entry : table.entrySet()) {
+            List<Path> paths = entry.getValue();
             if (paths.size() > 1) {
                 System.out.println(entry.getKey());
                 for (Path path : paths) {
