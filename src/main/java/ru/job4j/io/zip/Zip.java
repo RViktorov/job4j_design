@@ -49,16 +49,16 @@ public class Zip {
         if (!file.isDirectory()) {
             throw new IllegalArgumentException(String.format("This is not a directory: %s", file.getAbsoluteFile()));
         }
-        File file1 = new File(parameters.get("-e"));
-        if (!file1.toString().startsWith(".")) {
+        String exclude = parameters.get("-e");
+        if (!exclude.startsWith(".")) {
             throw new IllegalArgumentException("Please specify the parameter with the extension correctly (.class)");
         }
-        File file2 = new File(parameters.get("-o"));
-        if (!file2.toString().endsWith(".zip")) {
+        String extension = parameters.get("-o");
+        if (!extension.endsWith(".zip")) {
             throw new IllegalArgumentException("Please specify the correct archive format (.zip)");
         }
         System.out.println(args[0] + args[1] + args[2]);
-        if (!args[0].startsWith("-d") || !args[1].startsWith("-e") || !args[0].startsWith("-o")) {
+        if (!args[0].startsWith("-d") || !args[1].startsWith("-e") || !args[2].startsWith("-o")) {
             throw new IllegalArgumentException("Usage: -d=<directory> -e=<exclude_extension> -o=<output.zip>");
         }
     }
