@@ -14,8 +14,6 @@ public class EchoServer {
     private final static Logger LOG = LoggerFactory.getLogger(UsageLog4j.class.getName());
 
     public static void main(String[] args) {
-
-
         try (ServerSocket server = new ServerSocket(9002)) {
             boolean serverRunning = true;
             while (serverRunning && !server.isClosed()) {
@@ -59,4 +57,5 @@ public class EchoServer {
             LOG.error("Exception in log", ex);
         }
     }
+
 }
