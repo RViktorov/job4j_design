@@ -46,5 +46,4 @@ public class Contact implements Serializable {
             System.out.println(contactFromFile);
         }
     }
-
 }
