@@ -1,0 +1,15 @@
+<?xml version="1.1" encoding="UTF-8" ?>
+
+<car newCar="false" yearCarProduction="2021" model="BMWX7">
+
+    <engine engineType="V8"/>
+
+    <servicesMaintinance>
+
+        <serviceMaintinance>TO-0</serviceMaintinance>
+
+        <serviceMaintinance>TO-1</serviceMaintinance>
+
+    </servicesMaintinance>
+
+</car>
