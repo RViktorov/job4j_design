@@ -1,7 +1,16 @@
 package ru.job4j.serialization.json;
 
+import jakarta.xml.bind.annotation.XmlAttribute;
+import jakarta.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "engine")
 public class Engine {
-    private final String engineType;
+    @XmlAttribute
+    private String engineType;
+
+    public Engine() {
+
+    }
 
     public Engine(String engineType) {
         this.engineType = engineType;
