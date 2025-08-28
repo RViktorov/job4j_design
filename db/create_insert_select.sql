@@ -14,6 +14,8 @@ insert into fauna(name, avg_age, discovery_date)
 values ('Рыбы', 1000, '2000-01-01');
 insert into fauna(name, avg_age)
 values ('Птицы', 2000);
+insert into fauna(name, avg_age, discovery_date)
+values ('fishing', 8000, '1990-01-01');
 
 --1) Извлечение данных, у которых имя name содержит подстроку fish
 select * FROM fauna
