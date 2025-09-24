@@ -88,6 +88,6 @@ SELECT t1.name AS teen1,
        t2.name AS teen2
 FROM teens t1
 CROSS JOIN teens t2
-WHERE t1.gender <> t2.gender
-  AND t1.id < t2.id;
+WHERE t1.gender < t2.gender;
+
 
