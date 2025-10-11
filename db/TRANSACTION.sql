@@ -1,0 +1,17 @@
+BEGIN TRANSACTION;
+INSERT INTO car (name, price) VALUES ('NISSAN', 6400);
+COMMIT TRANSACTION;
+select * from car;
+BEGIN TRANSACTION
+DELETE FROM car;
+ROLLBACK TRANSACTION
+select * from car;
+BEGIN TRANSACTION;
+INSERT INTO car (name, price) VALUES ('MAZDA', 5500);
+SAVEPOINT first_savepoint;
+DELETE FROM car WHERE price = 5500;
+UPDATE car SET price = 7500 WHERE name = 'VAZ';
+SELECT * FROM car;
+ROLLBACK TO first_savepoint;
+SELECT * FROM car;
+COMMIT TRANSACTION;
