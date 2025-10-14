@@ -29,11 +29,11 @@ VALUES ('Гарри Поттер и узник Азкабана', 'Джоан Р
 /*- выведите названия всех фильмов, которые сняты по книге;*/
 SELECT title FROM books
 INTERSECT
-SELECT name AS title FROM  director;
+SELECT name AS title FROM  movies;
 /*- выведите все названия книг, у которых нет экранизации;*/
 SELECT title FROM books
 EXCEPT
-SELECT name AS title FROM  director;
+SELECT name AS title FROM  movies;
 /*- выведите все уникальные названия произведений из таблиц
 movies и books (т.е фильмы, которые сняты не по книге, и книги без экранизации)*/
 SELECT name AS title FROM movies
