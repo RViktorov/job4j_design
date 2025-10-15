@@ -46,10 +46,10 @@ public class ConnectionDemo {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         ConnectionDemo conf = new ConnectionDemo("data/app.properties");
         conf.load();
-        Class.forName(conf.value("hibernate.connection.driver_class"));
-        String url = conf.value("hibernate.connection.url");
-        String login = conf.value("hibernate.connection.username");
-        String password = conf.value("hibernate.connection.password");
+        Class.forName(conf.value("main.connection.driver_class"));
+        String url = conf.value("main.connection.url");
+        String login = conf.value("main.connection.username");
+        String password = conf.value("main.connection.password");
         try (Connection connection = DriverManager.getConnection(url, login, password)) {
             DatabaseMetaData metaData = connection.getMetaData();
             System.out.println(metaData.getUserName());
