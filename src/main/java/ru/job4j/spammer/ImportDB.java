@@ -24,7 +24,8 @@ public class ImportDB {
     public List<User> load() throws IOException {
         List<User> users = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(dump))) {
-            reader.lines().forEach(line -> {String[] parts = line.split(";");
+            reader.lines().forEach(line -> {
+                String[] parts = line.split(";");
                 if (parts.length != 2) {
                     throw new IllegalArgumentException("incomplete data in the line " + line);
                 }
@@ -39,6 +40,7 @@ public class ImportDB {
         }
         return users;
     }
+
     public void save(List<User> users) throws ClassNotFoundException, SQLException {
         Class.forName(config.getProperty("jdbc.driver"));
         try (Connection connection = DriverManager.getConnection(
